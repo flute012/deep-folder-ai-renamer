@@ -46,7 +46,7 @@ Most open-source tools try to "guess" how to classify your files, often messing 
 Whether you are an office professional looking for an instant solution or a developer exploring the code, you can get started in seconds.
 
 ### 🏢 For Office Users (No Installation Required)
-1. Go to the [**Releases**](https://github.com/你的帳號/你的專案名/releases) page.
+1. Go to the [**Releases**](https://github.com/flute012/deep-folder-ai-renamer/releases) page.
 2. Download the latest `FFM-V5.exe` (Windows standalone package).
 3. Double-click to launch the UI instantly. *No Python configuration or environment setup needed.*
 
@@ -55,7 +55,7 @@ If you prefer to run the project from the source code:
 
 ```powershell
 # 1. Clone the repository and navigate into it
-git clone [https://github.com/你的帳號/你的專案名.git](https://github.com/你的帳號/你的專案名.git)
+git clone [https://github.com/flute012/deep-folder-ai-renamer.git](https://github.com/flute012/deep-folder-ai-renamer.git)
 cd your-repo-name
 
 # 2. Initialize and activate a virtual environment
