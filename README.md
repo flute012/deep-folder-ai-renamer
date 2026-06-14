@@ -10,11 +10,11 @@ In any real-world office environment, you already know **where** your documents 
 
 Most open-source tools try to "guess" how to classify your files, often messing up your existing structure. **File & Folder Manager V5** (FFM-V5) takes a more practical approach. It provides an intuitive Tkinter UI that keeps you in control while using AI as a high-speed execution assistant.
 
-| ✅ | What You Do | 🤖 | What the AI Does |
+| ✅ | Your Actions (What You Do) | 🤖 | AI & System Execution (What It Does) |
 |---|-------------|---|-------------------|
-| **Select Source Folder** | The tool scans the entire directory hierarchy, no matter how many layers deep. | **Analyze Content via Local AI** | Reads file metadata and content (Text, PDF, Images) completely offline using a local LLM/VLM. |
-| **Apply Naming Rules** | Choose or define your rule set (e.g., `Client-Project-Date`). Configurable batch sizes. | **Generate Compliant Suggestions** | Evaluates the file's context and proposes a perfect, standardized filename based on your rules. |
-| **Review & Execute** | Hit **Rename** or **Copy**. The UI updates your language preference automatically. | **Safe Execution & Logging** | Executes changes instantly with a built-in undo stack, while logging operations for compliance. |
+| **Select Source Folder** | Choose the target root directory. The tool recursively scans the entire hierarchy, no matter how many layers deep. | **Analyze Content via API** | Safely reads file metadata and extracts context via secure, lightweight API calls completely on your machine. |
+| **Apply Naming Rules** | Define your custom rule pattern (e.g., `Client-Project-Date`) and control processing volume per run via configurable batch item counts. | **Generate Compliant Names** | Evaluates the extracted context against your preset rules and returns standardized filename suggestions. |
+| **Review & Execute** | Interactively preview the side-by-side results, bulk-approve or edit individual suggestions on the fly, then hit **Rename** or **Copy**. | **Safe Execution & Undo** | Applies your approved changes instantly and safely logs the actions into an an-on-the-fly undo stack. |
 
 *Privacy-First Architecture: Your files, directory trees, and paths are processed locally on your machine. The network connection is exclusively used to send string metadata to your chosen **AI API** for name generation; your actual corporate documents never leave your device.*
 
