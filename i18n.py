@@ -711,6 +711,102 @@ TRANSLATIONS = {
     '有 {count} 筆未填入目標名稱，繼續會略過。是否繼續？': {
         'en': '{count} items have empty targets and will be skipped. Proceed?',
         'zh': '有 {count} 筆未填入目標名稱，繼續會略過。是否繼續？'
+    },
+    '預覽變更': {
+        'en': 'Preview Changes',
+        'zh': '預覽變更'
+    },
+    'AI 預測': {
+        'en': 'AI Predicted',
+        'zh': 'AI 預測'
+    },
+    '已確認': {
+        'en': 'Confirmed',
+        'zh': '已確認'
+    },
+    '未填': {
+        'en': 'Empty',
+        'zh': '未填'
+    },
+    '✔ 執行勾選項目': {
+        'en': '✔ Execute Checked',
+        'zh': '✔ 執行勾選項目'
+    },
+    '來源路徑': {
+        'en': 'Source Path',
+        'zh': '來源路徑'
+    },
+    '來源檔名': {
+        'en': 'Source Name',
+        'zh': '來源檔名'
+    },
+    '目標路徑': {
+        'en': 'Target Path',
+        'zh': '目標路徑'
+    },
+    '目標檔名': {
+        'en': 'Target Name',
+        'zh': '目標檔名'
+    },
+    '來源資料夾名稱': {
+        'en': 'Source Folder Name',
+        'zh': '來源資料夾名稱'
+    },
+    '目標資料夾名稱': {
+        'en': 'Target Folder Name',
+        'zh': '目標資料夾名稱'
+    },
+    '請先輸入目標派發路徑': {
+        'en': 'Please input target distribution paths first.',
+        'zh': '請先輸入目標派發路徑'
+    },
+    '請填入至少一筆範例': {
+        'en': 'Please enter at least one example.',
+        'zh': '請填入至少一筆範例'
+    },
+    '筆數請填數字': {
+        'en': 'Please enter a number for count.',
+        'zh': '筆數請填數字'
+    },
+    '生成中…': {
+        'en': 'Generating...',
+        'zh': '生成中…'
+    },
+    '已套用': {
+        'en': 'Applied',
+        'zh': '已套用'
+    },
+    '已生成 {count} 筆': {
+        'en': 'Generated {count} items',
+        'zh': '已生成 {count} 筆'
+    },
+    '目標路徑組 {n}：': {
+        'en': 'Dest. Group {n}:',
+        'zh': '目標路徑組 {n}：'
+    },
+    '組 {n} 範例：': {
+        'en': 'Group {n} Example:',
+        'zh': '組 {n} 範例：'
+    },
+    '全部': {
+        'en': 'All',
+        'zh': '全部'
+    },
+    '點擊接受預測，將預測結果轉為確認狀態': {
+        'en': 'Clicked Accept: prediction moved to confirmed state',
+        'zh': '點擊接受預測，將預測結果轉為確認狀態'
+    },
+    '手動修改新路徑：{curr_path}': {
+        'en': 'Manual edit new path: {curr_path}',
+        'zh': '手動修改新路徑：{curr_path}'
+    },
+    '手動修改新檔名：{curr_name}': {
+        'en': 'Manual edit new name: {curr_name}',
+        'zh': '手動修改新檔名：{curr_name}'
+    },
+    '⚠️ {llm_name} 字數超限警告\n\n目前累計的參考範本與批次預測目標過多，\n預估發送 Prompt 長度為 {estimated_chars} 字（已超過 {char_limit} 字安全建議上限）。\n\n【模型資訊】：{llm_desc}\n\n這極可能導致 AI 額度超限、連線逾時或回傳解析失敗。\n建議您可以將左側「批次」選單調小（例如改為 9 或 15 筆）。\n\n請問您是否堅持要繼續發送請求？': {
+        'en': '⚠️ {llm_name} Token Limit Warning\n\nToo many reference examples and batch targets.\nEstimated prompt length: {estimated_chars} chars (exceeds safe limit of {char_limit}).\n\nModel info: {llm_desc}\n\nThis may exceed limits, timeout, or fail parsing.\nWe suggest reducing batch size (e.g. 9 or 15).\n\nDo you still want to send the request?',
+        'zh': '⚠️ {llm_name} 字數超限警告\n\n目前累計的參考範本與批次預測目標過多，\n預估發送 Prompt 長度為 {estimated_chars} 字（已超過 {char_limit} 字安全建議上限）。\n\n【模型資訊】：{llm_desc}\n\n這極可能導致 AI 額度超限、連線逾時或回傳解析失敗。\n建議您可以將左側「批次」選單調小（例如改為 9 或 15 筆）。\n\n請問您是否堅持要繼續發送請求？'
     }
 }
 

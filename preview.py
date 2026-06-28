@@ -734,14 +734,6 @@ class ExtendGroup(tk.Frame):
 
         if self._mode == MODE_TEMPLATE_COPY:
 
-            title_text = f'📂 目標路徑組 {self._group_idx + 1}：'
-
-            hint_text = "請在此貼上或輸入目標派發路徑（例如：D:\\新教材\\客戶A 或是 B班級）\n支援輸入多行派發給多個資料夾"
-
-        else:
-
-            title_text = f'組 {self._group_idx + 1} 範例：'
-
             hint_text = "01_第一單元\n02_第二單元"
 
 
@@ -802,7 +794,7 @@ class ExtendGroup(tk.Frame):
 
         if not raw_text or "請在此貼上或輸入目標派發路徑" in raw_text:
 
-            messagebox.showwarning('提示', '請先輸入目標派發路徑')
+            messagebox.showwarning(tr('提示'), tr('請先輸入目標派發路徑'))
 
             return
 
@@ -818,7 +810,7 @@ class ExtendGroup(tk.Frame):
 
         if not example_text or "01_第一單元" in example_text:
 
-            messagebox.showwarning('提示', '請填入至少一筆範例')
+            messagebox.showwarning(tr('提示'), tr('請填入至少一筆範例'))
 
             return
 
@@ -826,11 +818,11 @@ class ExtendGroup(tk.Frame):
 
         except ValueError:
 
-            messagebox.showerror('錯誤', '筆數請填數字')
+            messagebox.showerror(tr('錯誤'), tr('筆數請填數字'))
 
             return
 
-        self._btn.config(state='disabled', text='生成中…')
+        self._btn.config(state='disabled', text=tr('生成中…'))
 
         self._status.config(text='')
 
@@ -840,9 +832,9 @@ class ExtendGroup(tk.Frame):
 
     def _on_result(self, names, count):
 
-        self._btn.config(state='normal', text=tr('🔗 套用此目標路徑') if self._mode == MODE_TEMPLATE_COPY else 'AI 生成')
+        self._btn.config(state='normal', text=tr('🔗 套用此目標路徑') if self._mode == MODE_TEMPLATE_COPY else tr('AI 生成'))
 
-        self._status.config(text=f'已套用' if self._mode == MODE_TEMPLATE_COPY else f'已生成 {len(names)} 筆')
+        self._status.config(text=tr('已套用') if self._mode == MODE_TEMPLATE_COPY else tr('已生成 {count} 筆', count=len(names)))
 
 
 
@@ -932,7 +924,7 @@ class PreviewPanel(tk.Frame):
 
         bar.pack(fill='x', padx=8, pady=(8,4))
 
-        tk.Label(bar, text='預覽變更', font=('Arial', 11, 'bold'), bg='#f7f1e4', fg='#2563EB').pack(side='left')
+        tk.Label(bar, text=tr('預覽變更'), font=('Arial', 11, 'bold'), bg='#f7f1e4', fg='#2563EB').pack(side='left')
 
 
 
@@ -942,7 +934,7 @@ class PreviewPanel(tk.Frame):
 
 
 
-        self._ai_status = tk.Label(bar, text='（無 API Key，純手動模式）' if not self._has_key else '', bg='#f7f1e4', fg='#F59E0B', font=('Arial', 8))
+        self._ai_status = tk.Label(bar, text=tr('（無 API Key，純手動模式）') if not self._has_key else '', bg='#f7f1e4', fg='#F59E0B', font=('Arial', 8))
 
         self._ai_status.pack(side='left')
 
@@ -1072,7 +1064,7 @@ class PreviewPanel(tk.Frame):
 
         legend.pack(side='left', padx=(0,12))
 
-        for color, label in [('#F59E0B','AI 預測'), ('#22C55E','已確認'), ('#CBD5E1','未填')]:
+        for color, label in [('#F59E0B', tr('AI 預測')), ('#22C55E', tr('已確認')), ('#CBD5E1', tr('未填'))]:
 
             tk.Label(legend, text='●', fg=color, bg='#f7f1e4', font=('Arial', 10)).pack(side='left')
 
@@ -1080,7 +1072,7 @@ class PreviewPanel(tk.Frame):
 
 
 
-        tk.Button(btn_bar, text='✔ 執行勾選項目', command=self._trigger_execute, bg='#22C55E', fg='white', relief='flat', padx=10).pack(side='left', padx=4)
+        tk.Button(btn_bar, text=tr('✔ 執行勾選項目'), command=self._trigger_execute, bg='#22C55E', fg='white', relief='flat', padx=10).pack(side='left', padx=4)
 
         self._undo_btn = tk.Button(btn_bar, text=tr('【復原上一步】'), command=self._on_undo, bg='#F59E0B', fg='white', relief='flat', padx=10)
         self._undo_btn.pack(side='left', padx=4)
@@ -1115,11 +1107,11 @@ class PreviewPanel(tk.Frame):
 
         else:
 
-            name_label = '來源資料夾名稱' if self._is_only_dir else '來源檔名'
+            name_label = tr('來源資料夾名稱') if self._is_only_dir else tr('來源檔名')
 
-            target_label = '目標資料夾名稱' if self._is_only_dir else '目標檔名'
+            target_label = tr('目標資料夾名稱') if self._is_only_dir else tr('目標檔名')
 
-            labels = ['來源路徑', name_label, '目標路徑', target_label]
+            labels = [tr('來源路徑'), name_label, tr('目標路徑'), target_label]
 
             for i, label in enumerate(labels):
 
@@ -1147,13 +1139,13 @@ class PreviewPanel(tk.Frame):
 
             top.pack(fill='x', pady=(4,2))
 
-            title = 'AI 延伸新增'
+            title_text_key = 'AI 延伸新增'
 
-            btn_txt = '＋ 新增一組'
+            btn_txt_key = '＋ 新增一組'
 
-            tk.Label(top, text=title, font=('Arial', 10, 'bold'), bg='#f7f1e4', fg='#2563EB').pack(side='left')
+            tk.Label(top, text=tr(title_text_key), font=('Arial', 10, 'bold'), bg='#f7f1e4', fg='#2563EB').pack(side='left')
 
-            tk.Button(top, text=btn_txt, command=self._add_extend_group, bg='#fff7eb', relief='flat', padx=8).pack(side='left', padx=8)
+            tk.Button(top, text=tr(btn_txt_key), command=self._add_extend_group, bg='#fff7eb', relief='flat', padx=8).pack(side='left', padx=8)
 
             self._groups_frame = tk.Frame(self._extend_frame, bg='#f7f1e4')
 
@@ -1716,7 +1708,7 @@ class PreviewPanel(tk.Frame):
 
         self._sort_asc = not self._sort_asc
 
-        self._sort_btn.config(text=tr('排序 A→Z') if self._sort_asc else '排序 Z→A')
+        self._sort_btn.config(text=tr('排序 A→Z') if self._sort_asc else tr('排序 Z→A'))
 
         self._items.sort(key=lambda item: self._split_path(item[0])[1].lower(), reverse=not self._sort_asc)
 
@@ -2354,7 +2346,7 @@ class PreviewPanel(tk.Frame):
 
         val = self._batch_var.get()
 
-        self._batch_size = len(self._rows) if val == '全部' else int(val)
+        self._batch_size = len(self._rows) if val == tr('全部') else int(val)
 
 
 
@@ -2532,15 +2524,15 @@ class PreviewPanel(tk.Frame):
 
         if self._is_only_dir:
 
-            col_src_name = '原始資料夾名稱'
+            col_src_name = tr('原始資料夾名稱')
 
-            col_dst_name = '修改後資料夾名稱'
+            col_dst_name = tr('修改後資料夾名稱')
 
         else:
 
-            col_src_name = '原始檔名'
+            col_src_name = tr('原始檔名')
 
-            col_dst_name = '修改後檔名'
+            col_dst_name = tr('修改後檔名')
 
 
 

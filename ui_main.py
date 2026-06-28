@@ -271,7 +271,7 @@ class App(TkinterDnD.Tk if HAS_DND else tk.Tk):
         e = tk.Entry(row, textvariable=var, width=26, font=('Arial', 10))
         e.pack(side='left', fill='x', expand=True, ipady=4)
         self._bind_drop(e, var)
-        tk.Button(row, text='瀏覽', command=lambda v=var: self._browse_dir(v), bg=BTN_COLOR, relief='flat', pady=2).pack(side='left', padx=2)
+        tk.Button(row, text=tr('瀏覽'), command=lambda v=var: self._browse_dir(v), bg=BTN_COLOR, relief='flat', pady=2).pack(side='left', padx=2)
         return var
 
     def _build_input(self):
@@ -286,7 +286,7 @@ class App(TkinterDnD.Tk if HAS_DND else tk.Tk):
 
         if mode == MODE_SMART_RENAME:
             self._only_dir_var = tk.BooleanVar(value=False)
-            tk.Checkbutton(f, text='📁 預覽只載入資料夾 (排除檔案)', variable=self._only_dir_var, bg=BG_COLOR, fg='#2563EB', font=('Arial', 9, 'bold')).pack(anchor='w', pady=(4,0))
+            tk.Checkbutton(f, text=tr('📁 預覽只載入資料夾 (排除檔案)'), variable=self._only_dir_var, bg=BG_COLOR, fg='#2563EB', font=('Arial', 9, 'bold')).pack(anchor='w', pady=(4,0))
 
         if mode == MODE_MKDIR:
             def set_text_hint(widget, text):
@@ -295,8 +295,8 @@ class App(TkinterDnD.Tk if HAS_DND else tk.Tk):
                 widget.bind('<FocusIn>', lambda e: widget.delete('1.0', 'end') or widget.config(fg='#000000') if widget.get('1.0', 'end-1c') == text else None)
                 widget.bind('<FocusOut>', lambda e: widget.insert('1.0', text) or widget.config(fg='#94A3B8') if not widget.get('1.0', 'end-1c').strip() else None)
 
-            tk.Label(f, text='預計建立的相對路徑（支援多行、多層級）：', bg=BG_COLOR).pack(anchor='w', pady=(6,0))
-            tk.Button(f, text='🛠️ 巢狀結構與 AI 智慧生成器', command=self._open_mkdir_generator, bg='#e7edaf', font=('Arial', 9, 'bold'), relief='flat', pady=4).pack(anchor='w', fill='x', pady=(2,4))
+            tk.Label(f, text=tr('預計建立的相對路徑（支援多行、多層級）：'), bg=BG_COLOR).pack(anchor='w', pady=(6,0))
+            tk.Button(f, text=tr('🛠️ 巢狀結構與 AI 智慧生成器'), command=self._open_mkdir_generator, bg='#e7edaf', font=('Arial', 9, 'bold'), relief='flat', pady=4).pack(anchor='w', fill='x', pady=(2,4))
             self._mkdir_names = tk.Text(f, height=10, width=28)
             self._mkdir_names.pack(anchor='w')
             placeholder = "HK1\\lesson1\\game\nHK1\\lesson1\\sound\nHK1\\lesson2\\video\nHK2\\backup"
@@ -317,22 +317,22 @@ class App(TkinterDnD.Tk if HAS_DND else tk.Tk):
             e = tk.Entry(row, textvariable=self._excel_var, width=26, font=('Arial', 10))
             e.pack(side='left', fill='x', expand=True, ipady=4)
             self._bind_drop(e, self._excel_var)
-            tk.Button(row, text='瀏覽', command=self._browse_excel, bg=BTN_COLOR, relief='flat', pady=2).pack(side='left', padx=2)
+            tk.Button(row, text=tr('瀏覽'), command=self._browse_excel, bg=BTN_COLOR, relief='flat', pady=2).pack(side='left', padx=2)
 
         if mode == MODE_DELETE_FILTER:
-            tk.Label(f, text='🔍 篩選副檔名（如 .bak，空代表不限）：', bg=BG_COLOR).pack(anchor='w', pady=(4,0))
+            tk.Label(f, text=tr('🔍 篩選副檔名（如 .bak，空代表不限）：'), bg=BG_COLOR).pack(anchor='w', pady=(4,0))
             self._del_ext_var = tk.StringVar()
             tk.Entry(f, textvariable=self._del_ext_var, width=24, font=('Arial', 10)).pack(anchor='w', ipady=3)
-            tk.Label(f, text='📝 檔名包含關鍵字（空代表不限）：', bg=BG_COLOR).pack(anchor='w', pady=(4,0))
+            tk.Label(f, text=tr('📝 檔名包含關鍵字（空代表不限）：'), bg=BG_COLOR).pack(anchor='w', pady=(4,0))
             self._del_kw_var = tk.StringVar()
             tk.Entry(f, textvariable=self._del_kw_var, width=24, font=('Arial', 10)).pack(anchor='w', ipady=3)
-            tk.Label(f, text='⚠️ 警告：執行後檔案將移入隱藏暫存區！', fg='#EF4444', bg=BG_COLOR, font=('Arial', 9, 'bold')).pack(anchor='w', pady=(6,0))
-            tk.Button(f, text='🧹 清理暫存區 (丟至回收桶)', command=self._clean_trash_backup, bg='#FEE2E2', fg='#EF4444', font=('Arial', 9, 'bold'), relief='flat', pady=4).pack(anchor='w', fill='x', pady=(6,0))
+            tk.Label(f, text=tr('⚠️ 警告：執行後檔案將移入隱藏暫存區！'), fg='#EF4444', bg=BG_COLOR, font=('Arial', 9, 'bold')).pack(anchor='w', pady=(6,0))
+            tk.Button(f, text=tr('🧹 清理暫存區 (丟至回收桶)'), command=self._clean_trash_backup, bg='#FEE2E2', fg='#EF4444', font=('Arial', 9, 'bold'), relief='flat', pady=4).pack(anchor='w', fill='x', pady=(6,0))
 
         btn_row = tk.Frame(f, bg=BG_COLOR)
         btn_row.pack(anchor='w', fill='x', pady=(10,0))
-        tk.Button(btn_row, text='載入預覽', bg='#2563EB', fg='white', relief='flat', padx=10, pady=4, command=self._load_preview).pack(side='left')
-        tk.Button(btn_row, text='重新開始', bg='#64748B', fg='white', relief='flat', padx=10, pady=4, command=self._restart_app).pack(side='left', padx=6)
+        tk.Button(btn_row, text=tr('載入預覽'), bg='#2563EB', fg='white', relief='flat', padx=10, pady=4, command=self._load_preview).pack(side='left')
+        tk.Button(btn_row, text=tr('重新開始'), bg='#64748B', fg='white', relief='flat', padx=10, pady=4, command=self._restart_app).pack(side='left', padx=6)
 
     def _open_mkdir_generator(self):
         from mkdir_generator import MkdirGeneratorDialog
